@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <!-- Bootstrap CDN link -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@363&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+
+    </head>
+    <body>
+      <div class="home-page">
+          <div>
+            <div class="cards mx-3" *ngFor="let contact of contacts; let i = index;">
+              <div class="card" (click) = "displayDetails(i)" (click) = 'updateCart(contact.email)' [ngClass]="{'in-row': selectedItem == contact.email}">
+                <div class="card-body pointer">
+                  <div class="card-title">
+                    <h4>{{contact.name}}</h4>
+                  </div>
+            
+                  <div class="card-text">
+                    {{contact.mobile}}
+                  </div>
+
+                  <div class="card-text">
+                    {{contact.email}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="details" *ngIf="showMyDiv">
+            <div class="name-and-details"> 
+                <div>
+                    <h3 class="heading3"> {{name}} </h3>
+                    <div class="pb-2">Email: {{email}}</div> 
+                    <div class="pb-2">Mobile: {{mobile}}</div>
+                    <div class="pb-2">Landline: {{landline}}</div>
+                    <div class="pb-2">Website: {{website}} </div>
+                    <pre>Address: {{address}}</pre>
+                </div>
+                <div class="actions">
+                    <ul style="margin: 0px;">
+                        <li class="pointer action-bar" (click) = "onEditClick()" style="padding-left: 65px;"><img style="height:16px; width: 17px;" src="assets/images/edit1.jpg" alt="Edit icon"></li>
+                        <li class="pointer action-bar action-headings" (click) = "onEditClick()">edit</li>
+
+                        <li class="pointer action-bar" (click) = "onDeleteClick()" style="padding-left: 30px;"><img style="height: 21px;" src="assets/images/delete1.png" alt="Delete icon"></li>
+                        <li class="pointer action-bar action-headings" (click) = "onDeleteClick()" style="padding-right: 0px;">delete</li>
+                    </ul>   
+                </div>      
+            </div>
+        </div>
+      </div>
+      
+    </body>
+</html>

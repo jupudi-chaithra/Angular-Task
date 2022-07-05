@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <!-- Bootstrap CDN link -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- Google fonts -->
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="header">
+            Fosterate
+        </div>
+        <!-- [routerLinkActive]="['active']" -->
+        <div class="nav-bar">
+            <ul class="link-list">
+                <li class="home"><a [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }" routerLink = "/">HOME</a></li>
+                <li class="add" (click) = "onNavClick()"><a  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }" routerLink = "/add">+ADD</a></li>
+            </ul>
+            <img class="blog-icon" src="assets/images/blogIcon.png" alt="">
+        </div>
+
+        <h2>CONTACTS</h2>
+
+    </body>
+</html>
+
+<router-outlet></router-outlet>
