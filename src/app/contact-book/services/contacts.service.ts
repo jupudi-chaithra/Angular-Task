@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ContactsService {
-    public arr: any = [
+    public contacts: any = [
     {"name": "Harsha Vardhan Pendyala", "email": "harsha@fosterate.com", "mobile": 7777888855, "landline": "", "website": "", "address": "   hyderabad\n\t\t\tTelangana\n\t\t\t500061"},
 
     {"name": "Network Duke", "email": "duke@fosterate.com", "mobile": 7777888855, "landline": "", "website": "", "address":  "   hyderabad\n\t\t\tTelangana\n\t\t\t500061"},
@@ -15,6 +15,6 @@ export class ContactsService {
   constructor() { }
 
   getContacts(){
-    return this.arr
+    return this.contacts
   }
 }

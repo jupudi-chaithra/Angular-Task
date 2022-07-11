@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ContactsService } from '../contacts.service';
+import { ContactsService } from '../../services/contacts.service';
 import { Router } from '@angular/router';
-import { GlobalConstants } from '../common/global-constants';
+import { GlobalConstants } from '../../common/global-constants';
 import { AddComponent } from '../add/add.component';
 export var index: number = -1
 
@@ -21,18 +21,26 @@ export class HomeComponent implements OnInit {
   public address: string = ""
   public highlightStyle = {}
 
-  public showMyDiv = false
+  public showMyDiv = true
+  public noContacts = false
   selectedItem: any;
 
   constructor(private _contactService: ContactsService, private router: Router) { }
 
   ngOnInit(): void {
     this.contacts = this._contactService.getContacts()
+    this.name = this.contacts[0].name
+    this.email = this.contacts[0].email
+    this.mobile = this.contacts[0].mobile
+    this.landline = this.contacts[0].landline
+    this.website = this.contacts[0].website
+    this.address = this.contacts[0].address
+    this.selectedItem = this.contacts[0].email
   }
 
 
-  // public index = -1
-  displayDetails(i: number){
+  displayDetails(i = 0){
+    try{
     let presentContact = this.contacts[i]
     this.name = presentContact.name 
     this.email = presentContact.email
@@ -46,9 +54,16 @@ export class HomeComponent implements OnInit {
     }
     index = i
   }
+    catch(err){
+      this.noContacts = true
+    }
+  }
 
   onDeleteClick(){
     this.contacts.splice(index, 1)
+    this.showMyDiv = false
+    this.displayDetails()
+    this.updateCart(this.email)
   }
 
 

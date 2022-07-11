@@ -23,11 +23,9 @@
                   <div class="card-title">
                     <h4>{{contact.name}}</h4>
                   </div>
-            
                   <div class="card-text">
                     {{contact.mobile}}
                   </div>
-
                   <div class="card-text">
                     {{contact.email}}
                   </div>
@@ -35,6 +33,7 @@
               </div>
             </div>
           </div>
+          
 
           <div class="details" *ngIf="showMyDiv">
             <div class="name-and-details"> 
@@ -57,6 +56,9 @@
                 </div>      
             </div>
         </div>
+      </div>
+      <div class="text-center" *ngIf="noContacts">
+        <h1>No contacts available</h1> 
       </div>
       
     </body>

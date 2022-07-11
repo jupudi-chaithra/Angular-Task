@@ -32,6 +32,10 @@
                 </div>
             </div>
 
+            <div class="text-center" *ngIf="noContacts">
+                <h1 class="noContacts">No contacts available</h1>
+            </div>
+
             <div class="total">
                 <form [formGroup] = "registrationForm" (ngSubmit) = "onSubmit()">
                     <div class="form-group">

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ContactsService } from '../contacts.service';
+import { ContactsService } from '../../services/contacts.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { GlobalConstants } from '../common/global-constants';
+import { GlobalConstants } from '../../common/global-constants';
 import { index } from '../home/home.component';
 
 @Component({
@@ -11,6 +11,7 @@ import { index } from '../home/home.component';
 })
 export class AddComponent implements OnInit {
 
+  public noContacts = false
   public contacts: any = [];
   
   constructor(private _contactService: ContactsService, private fb: FormBuilder) {
@@ -18,6 +19,7 @@ export class AddComponent implements OnInit {
 
   ngOnInit(): void {
     this.contacts = this._contactService.getContacts()
+    this.checkEmptyArray()
   }
 
   registrationForm = this.fb.group({
@@ -28,6 +30,11 @@ export class AddComponent implements OnInit {
     website: [''],
     address: [''],
   }) 
+
+  checkEmptyArray(){
+    if(this.contacts.length == 0)
+      this.noContacts = true
+  }
 
   buttonValue = GlobalConstants.buttonValue
 
@@ -48,6 +55,7 @@ export class AddComponent implements OnInit {
           this.contacts[index] = this.registrationForm.value
         }
     }
+    this.noContacts=false
   }
 
 }
