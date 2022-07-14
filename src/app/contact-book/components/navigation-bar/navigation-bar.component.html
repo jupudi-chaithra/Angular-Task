@@ -27,7 +27,7 @@
         <!-- [routerLinkActive]="['active']" -->
         <div class="nav-bar">
             <ul class="link-list">
-                <li class="home"><a [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }" routerLink = "/">HOME</a></li>
+                <li class="home" (click) = "onNavClick()"><a [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }" routerLink = "/">HOME</a></li>
                 <li class="add" (click) = "onNavClick()"><a  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }" routerLink = "/add">+ADD</a></li>
             </ul>
             <img class="blog-icon" src="assets/images/blogIcon.png" alt="">

@@ -20,6 +20,7 @@ export class AddComponent implements OnInit {
   ngOnInit(): void {
     this.contacts = this._contactService.getContacts()
     this.checkEmptyArray()
+    this.checkButtonValue()
   }
 
   registrationForm = this.fb.group({
@@ -36,10 +37,24 @@ export class AddComponent implements OnInit {
       this.noContacts = true
   }
 
+
   buttonValue = GlobalConstants.buttonValue
 
   public giveFormValue(){
     console.log(this.registrationForm.controls)
+  }
+
+  checkButtonValue(){
+    if(this.buttonValue == "Edit"){
+     this.registrationForm = this.fb.group({
+        name: [this.contacts[index].name , Validators.required],
+        email: [this.contacts[index].email, Validators.required],
+        mobile: [this.contacts[index].mobile, Validators.required],
+        landline: [this.contacts[index].landline,],
+        website: [this.contacts[index].website],
+        address: [this.contacts[index].address],
+      }) 
+    }
   }
 
   onSubmit(){
@@ -57,5 +72,4 @@ export class AddComponent implements OnInit {
     }
     this.noContacts=false
   }
-
 }

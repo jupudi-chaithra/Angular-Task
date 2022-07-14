@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ContactBookModule } from './contact-book/contact-book.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     NavigationBarComponent,
     HomeComponent,
-    AddComponent
+    AddComponent,
   ],
   imports: [
     BrowserModule,

@@ -74,5 +74,6 @@ export class HomeComponent implements OnInit {
   onEditClick(){
     this.router.navigate(['/add'])
     GlobalConstants.buttonValue = "Edit"
+    console.log(index)
   }
 }
